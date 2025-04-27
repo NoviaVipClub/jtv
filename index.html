@@ -1,49 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>International Luxury JTV and Party Club</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Sans+KR&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Helvetica Neue', sans-serif;
-            color: gold;
-            text-align: center;
-            padding: 50px 20px;
-            position: relative;
-            overflow: hidden;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            animation: moveBackground 60s linear infinite;
-            transition: all 0.5s ease;
-        }
-        @keyframes moveBackground {
-            0%, 100% { background-position: center center; }
-            50% { background-position: center top; }
-        }
-        body::after {
-            content: "";
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.4);
-            z-index: 1;
-        }
-        video.logo, h1, .tagline, p, .address, .hours, .links-container, footer {
-            position: relative; z-index: 2;
-            transition: opacity 0.5s ease;
-        }
-        video.logo {
-            width: 300px;
-            margin-bottom: 4px;
-            border: 1px solid gold;
-            border-radius: 0px;
-        }
-        .tagline { font-size: 18px; margin-top: -15px; font-style: italic; }
-        .address, .hours { margin-top: 20px; font-size: 18px; }
-
-        /* ✨ New Fancy Links Container */
-        .links-container {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mobile Friendly -->
+  <title>International Luxury JTV and Party Club</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <style>
+    /* Base Styles */
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      color: gold;
+      text-align: center;
+      padding: 50px 20px;
+      position: relative;
+      overflow-x: hidden;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      animation: moveBackground 60s linear infinite;
+      transition: all 0.5s ease;
+    }
+    @keyframes moveBackground {
+      0%, 100% { background-position: center center; }
+      50% { background-position: center top; }
+    }
+    body::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: 1;
+    }
+    video.logo, h1, .tagline, p, .address, .hours, .links-container, footer {
+      position: relative;z-index: 2;
+      transition: opacity 0.5s ease;
+    }
+    video.logo {
+      width: 300px;
+      max-width: 90%;
+      margin-bottom: 4px;
+      border: 1px solid gold;
+      border-radius: 0;
+    }
+    h1 {
+      font-size: 2em;
+      margin: 20px 0;
+    }
+    .tagline {
+      font-size: 1.2em;
+      margin-top: -15px;
+      font-style: italic;
+    }
+    p .address, .hours {
+      font-size: 18px;
+      margin-top: 20px;
+      line-height: 1.5em;
+    }
+    .links-container {
             display: flex;
             justify-content: center;
             gap: 20px;
@@ -88,134 +102,200 @@
             50% { opacity: 1; text-shadow: 0 0 5px gold, 0 0 10px gold; }
             100% { opacity: 1; text-shadow: 0 0 8px gold; }
         }
-
-        footer { margin-top: 50px; font-size: 14px; color: white; }
-        #language-selector {
-            position: absolute; top: 20px; right: 20px; z-index: 3;
-        }
-        #language-selector button {
-            margin: 0 5px; padding: 8px 15px; font-size: 16px;
-            background-color: #444; color: white; border: none; border-radius: 5px;
-            cursor: pointer; transition: background-color 0.3s;
-        }
-        #language-selector button:hover { background-color: #666; }
-
-        /* Modal Gallery */
-        .modal {
-            display: none; position: fixed; z-index: 5; padding-top: 80px;
-            left: 0; top: 0; width: 100%; height: 100%; overflow: auto;
-            background-color: rgba(0,0,0,0.8);
-        }
-        .modal-content {
-            margin: auto; display: flex; flex-wrap: wrap; justify-content: center;
-            gap: 15px; max-width: 90%;
-        }
-        .modal-content img {
-            width: 150px; height: 200px; object-fit: cover; border: 2px solid gold;
-            border-radius: 10px; cursor: pointer; transition: transform 0.3s;
-        }
-        .modal-content img:hover { transform: scale(1.05); }
-        .zoomed {
-            display: none; position: fixed; top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 90%; max-height: 90%;
-            z-index: 10; border: 4px solid gold; border-radius: 10px;
-        }
-        .close-btn {
-            position: absolute; top: 30px; right: 30px;
-            color: gold; font-size: 40px; font-weight: bold;
-            cursor: pointer; z-index: 6;
-        }
-
-/* Basic styling for the link */
-a {
-    position: relative;
-    color: #333;
-    font-size: 18px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-/* Add gold underline */
-a::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 3px; /* Thickness of the underline */
-    background-color: gold;
-    transition: width 0.3s ease-in-out; /* Smooth sliding effect */
-}
-
-/* Add glowing effect on hover */
-a:hover {
-    color: gold; /* Change text color to gold when hovering */
-    text-shadow: 0 0 10px gold; /* Slight glow effect on text */
-}
-
-/* Underline sliding animation */
-a:hover::before {
-    width: 100%; /* Underline expands to full width */
-}
-
-/* Soft gold glow animation when the page loads */
-@keyframes goldGlow {
-    0% {
-        text-shadow: 0 0 10px gold;
+    footer {
+      margin-top: 50px;
+      font-size: 14px;
+      color: white;
     }
-    50% {
-        text-shadow: 0 0 20px gold;
-    }
-    100% {
-        text-shadow: 0 0 10px gold;
-    }
-}
 
-a {
-    animation: goldGlow 2s infinite ease-in-out; /* Applying the glow animation */
-}
-    </style>
+    /* Language Selector */
+    #language-selector {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 3;
+    }
+    #language-selector button {
+      margin: 0 5px;
+      padding: 8px 15px;
+      font-size: 16px;
+      background-color: #444;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    #language-selector button:hover { background-color: #666; }
+
+    /* Modal Gallery */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 5;
+      padding-top: 80px;
+      left: 0; top: 0; width: 100%; height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+    .modal-content {
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      max-width: 90%;
+    }
+    .modal-content img {
+      width: 150px;
+      height: 200px;
+      object-fit: cover;
+      border: 2px solid gold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .modal-content img:hover { transform: scale(1.05); }
+    .zoomed {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 90%;
+      max-height: 90%;
+      z-index: 10;
+      border: 4px solid gold;
+      border-radius: 10px;
+    }
+    .close-btn {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      color: gold;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 6;
+    }
+
+    /* Link Glow */
+    a {
+      position: relative;
+      color: #333;
+      font-size: 18px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+      animation: goldGlow 2s infinite ease-in-out;
+    }
+    a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background-color: gold;
+      transition: width 0.3s ease-in-out;
+    }
+    a:hover {
+      color: gold;
+      text-shadow: 0 0 10px gold;
+    }
+    a:hover::before { width: 100%; }
+    @keyframes goldGlow {
+      0% { text-shadow: 0 0 10px gold; }
+      50% { text-shadow: 0 0 20px gold; }
+      100% { text-shadow: 0 0 10px gold; }
+    }
+
+    /* 📱 Responsive Styles */
+    @media (max-width: 768px) {
+      body {
+        padding: 30px 15px;
+      }
+      video.logo {
+        width: 220px;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      .tagline, p, .address, .hours {
+        font-size: 16px;
+      }
+      .see-girls-link {
+        font-size: 16px;
+      }
+    }
+    @media (max-width: 480px) {
+      video.logo {
+        width: 180px;
+      }
+      h1 {
+        font-size: 1.6em;
+      }
+      .tagline, p, .address, .hours {
+        font-size: 14px;
+      }
+      .links-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .see-girls-link {
+        font-size: 14px;
+      }
+      #language-selector {
+        top: 10px;
+        right: 10px;
+      }
+      #language-selector button {
+        font-size: 12px;
+        padding: 6px 10px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <div id="language-selector">
-    <button onclick="changeLanguage('english')">🇺🇸 English</button>
-    <button onclick="changeLanguage('korean')">🇰🇷 Korean</button>
-    <button onclick="changeLanguage('japanese')">🇯🇵 Japanese</button>
+  <button onclick="changeLanguage('english')">🇺🇸 English</button>
+  <button onclick="changeLanguage('korean')">🇰🇷 Korean</button>
+  <button onclick="changeLanguage('japanese')">🇯🇵 Japanese</button>
+  <button onclick="changeLanguage('chinese')">🇨🇳 中文</button>
 </div>
 
 <video class="logo" autoplay muted loop playsinline>
-    <source src="novia.mp4" type="video/mp4">
-    Your browser does not support the video tag.
+  <source src="novia.mp4" type="video/mp4">
+  Your browser does not support the video tag.
 </video>
 
 <h1 id="main-title">Welcome <br> to <br> International Luxury JTV and Party Club</h1>
 <div class="tagline" id="tagline">Where Imagination Meets Reality and Where the Girls are Hotter than the Parking Lot</div>
 
-<p id="paragraph1"> Step into a world of elegance, excitement, and relaxation. At our International Luxury JTV and Party Club, 
-    you and your friends can enjoy private,<br> world-class VIP rooms, sip premium drinks, 
-    and create unforgettable memories.<br> Whether you seek a night of vibrant energy or 
-    a relaxing evening, our club offers an exclusive atmosphere tailored just for you.
+<p id="paragraph1">
+  Step into a world of elegance, excitement, and relaxation. At our International Luxury JTV and Party Club, 
+  you and your friends can enjoy private,<br> world-class VIP rooms, sip premium drinks, 
+  and create unforgettable memories.<br> Whether you seek a night of vibrant energy or 
+  a relaxing evening, our club offers an exclusive atmosphere tailored just for you.
 </p>
 
-<p id="paragraph2">Immerse yourself in a luxurious experience where the night is always young and the vibes are always high.<br>
-    Private celebrations, spontaneous parties, or just a night to unwind — it's the perfect place for an unforgettable night.</p>
+<p id="paragraph2">
+  Immerse yourself in a luxurious experience where the night is always young and the vibes are always high.<br>
+  Private celebrations, spontaneous parties, or just a night to unwind — it's the perfect place for an unforgettable night.
+</p>
 
 <div class="address" id="address">
-    <a href="https://www.google.com/maps?q=1588+Pedro+Gil,+Corner+Del+Pilar+Street,+Malate,+Manila,+6th+Floor+New+Coast+Hotel+Manila" target="_blank">
-        <span>📍</span></a> Location: 1588 Pedro Gil, Corner Del Pilar Street, Malate, Manila<br>6th Floor New Coast Hotel Manila
-    
+  <a href="https://www.google.com/maps?q=1588+Pedro+Gil,+Corner+Del+Pilar+Street,+Malate,+Manila,+6th+Floor+New+Coast+Hotel+Manila" target="_blank">
+    📍</a> Location: 1588 Pedro Gil, Corner Del Pilar Street, Malate, Manila<br>6th Floor New Coast Hotel Manila
 </div>
 
 <div class="hours" id="hours">Operating Hours: 7:00 PM - 3:00 AM</div>
 
-<!-- ✨ Updated Fancy Links ✨ -->
 <div class="links-container">
-    <div class="see-girls-link" onclick="openGallery()">[ 👯‍♀️ Come and See the Girls ]</div>
-    <div class="see-girls-link" onclick="openVipGallery()">[ 🎉 See Our VIP Rooms ]</div>
+  <div class="see-girls-link" onclick="openGallery()">[ 👯‍♀️ Come and See the Girls ]</div>
+  <div class="see-girls-link" onclick="openVipGallery()">[ 🎉 See Our VIP Rooms ]</div>
 </div>
 
 <footer>© 2025 International Luxury JTV and Party Club. All rights reserved.</footer>
@@ -279,44 +359,52 @@ a {
 
     // Language change
     function changeLanguage(lang) {
-        const title = document.getElementById('main-title');
-        const tagline = document.getElementById('tagline');
-        const para1 = document.getElementById('paragraph1');
-        const para2 = document.getElementById('paragraph2');
-        const address = document.getElementById('address');
-        const hours = document.getElementById('hours');
+    const title = document.getElementById('main-title');
+    const tagline = document.getElementById('tagline');
+    const para1 = document.getElementById('paragraph1');
+    const para2 = document.getElementById('paragraph2');
+    const address = document.getElementById('address');
+    const hours = document.getElementById('hours');
 
-        title.style.opacity = tagline.style.opacity = para1.style.opacity = para2.style.opacity = address.style.opacity = hours.style.opacity = 0;
-        
-        setTimeout(() => {
-            if (lang === 'korean') {
-                document.body.style.fontFamily = "'Noto Sans KR', sans-serif";
-                title.innerHTML = "국제 고급 JTV 및 파티 클럽에 오신 것을 환영합니다";
-                tagline.innerHTML = "상상력이 현실이 되고 소녀들은 주차장보다 뜨겁습니다";
-                para1.innerHTML = "우아함, 흥분, 휴식을 즐길 수 있는 세계로 발을 들여보세요. 국제 고급 JTV 및 파티 클럽에서 친구들과 함께 프라이빗 VIP룸을 즐기고, 프리미엄 음료를 맛보며 잊지 못할 추억을 만드세요.";
-                para2.innerHTML = "럭셔리한 경험에 몰입하세요. 밤은 항상 젊고 분위기는 항상 뜨겁습니다. 프라이빗 파티, 즉흥 파티, 또는 편안한 저녁을 위한 완벽한 장소입니다.";
-                address.innerHTML = "📍 Location: 1588 Pedro Gil, Corner Del Pilar Street, Malate Manila<br>6th Floor New Coast Hotel Manila";
-                hours.innerHTML = "운영 시간: 오후 7시 ~ 오전 3시";
-            } else if (lang === 'japanese') {
-                document.body.style.fontFamily = "'Noto Sans JP', sans-serif";
-                title.innerHTML = "インターナショナル高級JTV＆パーティークラブへようこそ";
-                tagline.innerHTML = "想像力が現実に出会い、女の子たちは駐車場よりも熱い";
-                para1.innerHTML = "優雅さ、興奮、リラクゼーションの世界へ足を踏み入れてください。国際高級JTV＆パーティークラブで、友人たちと共にプライベートVIPルームを楽しみ、プレミアムドリンクを味わい、忘れられない思い出を作りましょう。";
-                para2.innerHTML = "贅沢な体験に浸りましょう。夜は常に若く、雰囲気は常に高揚しています。プライベートパーティー、即興のパーティー、またはくつろぎの夜に最適な場所です。";
-                address.innerHTML = "📍 Location: 1588 Pedro Gil, Corner Del Pilar Street, Malate Manila<br>6th Floor New Coast Hotel Manila";
-                hours.innerHTML = "営業時間: 午後7時〜午前3時";
-            } else {
-                document.body.style.fontFamily = "'Helvetica Neue', sans-serif";
-                title.innerHTML = "Welcome <br> to <br> International Luxury JTV and Party Club";
-                tagline.innerHTML = "Where Imagination Meets Reality and Where the Girls are Hotter than the Parking Lot";
-                para1.innerHTML = "Step into a world of elegance, excitement, and relaxation. At our International Luxury JTV and Party Club, you and your friends can enjoy private,<br> world-class VIP rooms, sip premium drinks, and create unforgettable memories.<br> Whether you seek a night of vibrant energy or a relaxing evening, our club offers an exclusive atmosphere tailored just for you.";
-                para2.innerHTML = "Immerse yourself in a luxurious experience where the night is always young and the vibes are always high.<br> Private celebrations, spontaneous parties, or just a night to unwind — it's the perfect place for an unforgettable night.";
-                address.innerHTML ="📍 Location: 1588 Pedro Gil, Corner Del Pilar Street, Malate Manila<br>6th Floor New Coast Hotel Manila";
-                hours.innerHTML = "Operating Hours: 7:00 PM - 3:00 AM";
-            }
-            title.style.opacity = tagline.style.opacity = para1.style.opacity = para2.style.opacity = address.style.opacity = hours.style.opacity = 1;
-        }, 400);
-    }
+    title.style.opacity = tagline.style.opacity = para1.style.opacity = para2.style.opacity = address.style.opacity = hours.style.opacity = 0;
+    
+    setTimeout(() => {
+        if (lang === 'korean') {
+            document.body.style.fontFamily = "'Noto Sans KR', sans-serif";
+            title.innerHTML = "국제 고급 JTV 및 파티 클럽에 오신 것을 환영합니다";
+            tagline.innerHTML = "상상력이 현실이 되고 소녀들은 주차장보다 뜨겁습니다";
+            para1.innerHTML = "우아함, 흥분, 휴식을 즐길 수 있는 세계로 발을 들여보세요. 국제 고급 JTV 및 파티 클럽에서 친구들과 함께 프라이빗 VIP룸을 즐기고, 프리미엄 음료를 맛보며 잊지 못할 추억을 만드세요.";
+            para2.innerHTML = "럭셔리한 경험에 몰입하세요. 밤은 항상 젊고 분위기는 항상 뜨겁습니다. 프라이빗 파티, 즉흥 파티, 또는 편안한 저녁을 위한 완벽한 장소입니다.";
+            address.innerHTML = "📍 Location: 1588 Pedro Gil, Corner Del Pilar Street, Malate Manila<br>6th Floor New Coast Hotel Manila";
+            hours.innerHTML = "운영 시간: 오후 7시 ~ 오전 3시";
+        } else if (lang === 'japanese') {
+            document.body.style.fontFamily = "'Noto Sans JP', sans-serif";
+            title.innerHTML = "インターナショナル高級JTV＆パーティークラブへようこそ";
+            tagline.innerHTML = "想像力が現実に出会い、女の子たちは駐車場よりも熱い";
+            para1.innerHTML = "優雅さ、興奮、リラクゼーションの世界へ足を踏み入れてください。国際高級JTV＆パーティークラブで、友人たちと共にプライベートVIPルームを楽しみ、プレミアムドリンクを味わい、忘れられない思い出を作りましょう。";
+            para2.innerHTML = "贅沢な体験に浸りましょう。夜は常に若く、雰囲気は常に高揚しています。プライベートパーティー、即興のパーティー、またはくつろぎの夜に最適な場所です。";
+            address.innerHTML = "📍 Location: 1588 Pedro Gil, Corner Del Pilar Street, Malate Manila<br>6th Floor New Coast Hotel Manila";
+            hours.innerHTML = "営業時間: 午後7時〜午前3時";
+        } else if (lang === 'chinese') {
+            document.body.style.fontFamily = "'Noto Sans SC', sans-serif";
+            title.innerHTML = "欢迎来到国际奢华JTV与派对俱乐部";
+            tagline.innerHTML = "在这里，想象变为现实，女孩们比停车场还火热";
+            para1.innerHTML = "踏入一个优雅、激情与放松的世界。在国际奢华JTV与派对俱乐部，与朋友们共享专属VIP包间，品尝顶级饮品，创造难忘回忆。";
+            para2.innerHTML = "沉浸在奢华体验中。夜晚永远年轻，气氛永远高涨。无论是私人派对、即兴聚会，还是一个轻松的夜晚，这里都是您完美的选择。";
+            address.innerHTML = "📍 地址: 菲律宾马尼拉马拉特区Pedro Gil街1588号与Del Pilar街交界<br>新海岸酒店马尼拉6楼";
+            hours.innerHTML = "营业时间: 晚上7:00 - 凌晨3:00";
+        } else {
+            document.body.style.fontFamily = "'Helvetica Neue', sans-serif";
+            title.innerHTML = "Welcome <br> to <br> International Luxury JTV and Party Club";
+            tagline.innerHTML = "Where Imagination Meets Reality and Where the Girls are Hotter than the Parking Lot";
+            para1.innerHTML = "Step into a world of elegance, excitement, and relaxation. At our International Luxury JTV and Party Club, you and your friends can enjoy private,<br> world-class VIP rooms, sip premium drinks, and create unforgettable memories.<br> Whether you seek a night of vibrant energy or a relaxing evening, our club offers an exclusive atmosphere tailored just for you.";
+            para2.innerHTML = "Immerse yourself in a luxurious experience where the night is always young and the vibes are always high.<br> Private celebrations, spontaneous parties, or just a night to unwind — it's the perfect place for an unforgettable night.";
+            address.innerHTML = "📍 Location: 1588 Pedro Gil, Corner Del Pilar Street, Malate Manila<br>6th Floor New Coast Hotel Manila";
+            hours.innerHTML = "Operating Hours: 7:00 PM - 3:00 AM";
+        }
+        title.style.opacity = tagline.style.opacity = para1.style.opacity = para2.style.opacity = address.style.opacity = hours.style.opacity = 1;
+    }, 400);
+}
 
 // Gallery Functions
 function openGallery() {
