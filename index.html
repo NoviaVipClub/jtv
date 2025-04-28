@@ -179,6 +179,7 @@
       z-index: 6;
     }
 
+
     /* Link Glow */
     a {
       position: relative;
@@ -254,6 +255,164 @@
         padding: 6px 10px;
       }
     }
+
+
+.close:hover {
+  color: white;
+}
+
+/* Fade in background */
+@keyframes fadeInBackground {
+  from { background-color: rgba(0,0,0,0); }
+  to { background-color: rgba(0,0,0,0.6); }
+}
+
+/* Zoom-in animation for modal */
+@keyframes zoomIn {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Core Values and Booking Modal Styling */
+.modal-small {
+  display: none;
+  position: fixed;
+  z-index: 6;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: auto;
+  padding-top: 100px;
+  animation: fadeInBackground 0.5s ease;
+}
+
+.modal-small-content {
+  background-color: #222;
+  margin: auto;
+  padding: 30px;
+  border: 2px solid gold;
+  width: 90%;
+  max-width: 500px;
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 20px gold;
+  animation: zoomIn 0.5s ease;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+
+/* Center ONLY the booking modal */
+
+.booking-modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+  
+  display: flex; /* Flex just for booking */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+
+/* Booking Modal Styles */
+.modal-window {
+  background: rgba(0, 0, 0, 0.95);
+  border: 2px solid gold;
+  border-radius: 15px;
+  padding: 30px 20px;
+  width: 90%;
+  max-width: 450px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: zoomIn 0.5s ease;
+  box-sizing: border-box;
+}
+
+.modal-window::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-window::-webkit-scrollbar-thumb {
+  background-color: gold;
+  border-radius: 5px;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-content input,
+.form-content textarea {
+  padding: 10px;
+  border: 1px solid gold;
+  background: black;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  resize: none;
+}
+
+small {
+  font-size: 12px;
+  margin-top: -8px;
+}
+
+.reminder-box {
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px dashed gold;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-size: 14px;
+  color: gold;
+  text-align: left;
+}
+
+.form-content input:focus,
+.form-content textarea:focus {
+  outline: none;
+  border-color: white;
+}
+
+.submit-btn {
+  background: gold;
+  color: black;
+  font-weight: bold;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background: white;
+  color: black;
+}
+
+.glowing-border {
+  width: 80px; /* adjust width */
+  height: 60px; /* adjust height */
+  border: 5px solid gold; /* gold border */
+  border-radius: 10px; /* optional, to round the corners */
+  box-shadow: 0 0 15px gold, 0 0 30px gold, 0 0 45px gold; /* gold glow effect */
+  transition: all 0.3s ease;
+}
+
+.glowing-border:hover {
+  box-shadow: 0 0 20px gold, 0 0 40px gold, 0 0 60px gold; /* stronger glow on hover */
+}
+
   </style>
 </head>
 
@@ -286,6 +445,11 @@
   Private celebrations, spontaneous parties, or just a night to unwind — it's the perfect place for an unforgettable night.
 </p>
 
+<!-- Image arrow separator -->
+<div class="arrow-separator">
+  <img src="separator2.png" alt="Arrow Separator" height="150"/>
+</div>
+
 <div class="address" id="address">
   <a href="https://www.google.com/maps?q=1588+Pedro+Gil,+Corner+Del+Pilar+Street,+Malate,+Manila,+6th+Floor+New+Coast+Hotel+Manila" target="_blank">
     📍</a> Location: 1588 Pedro Gil, Corner Del Pilar Street, Malate, Manila<br>6th Floor New Coast Hotel Manila
@@ -296,10 +460,83 @@
 <div class="links-container">
   <div class="see-girls-link" onclick="openGallery()">[ 👯‍♀️ Come and See the Girls ]</div>
   <div class="see-girls-link" onclick="openVipGallery()">[ 🎉 See Our VIP Rooms ]</div>
+  <div class="see-girls-link" onclick="openCoreValues()">[ 📜 Our Core Values ]</div>
+  <div class="see-girls-link" onclick="openBooking()">[ 📅 Book Now ]</div> 
 </div>
 
-<footer>© 2025 International Luxury JTV and Party Club. All rights reserved.<br><br>WebDev/WebMaster - Michael F. Dugger Jr<br><br> m98787347@gmail.com</footer>
+<!-- Image arrow separator -->
+<div class="arrow-separator">
+  <img src="separator2.png" alt="footer" height="150"/>
+</div>
 
+<footer>© 2025 International Luxury JTV and Party Club. All rights reserved.</footer>
+
+
+<div id="coreValuesModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeCoreValues()">&times;</span>
+    <h2>CORE VALUES</h2>
+    <p><strong>Excellence</strong><br>
+    We pursue excellence in every task, striving to deliver outstanding service and exceptional experiences.<br>
+    <em>(Inspired by Colossians 3:23)</em></p>
+
+    <p><strong>Compassion</strong><br>
+    We interact with every individual with kindness, respect,<br> and genuine care, reflecting a spirit of love in all we do.<br>
+    <em>(Inspired by John 13:34-35)</em></p>
+
+    <p><strong>Stewardship</strong><br>
+    We honor the resources, time, and talents entrusted to us,<br> managing them wisely to create lasting impact.<br>
+    <em>(Inspired by 1 Peter 4:10)</em></p>
+
+    <p><strong>Hospitality</strong><br>
+    We create welcoming environments where every guest feels valued, <br>respected, and at home.<br>
+    <em>(Inspired by Hebrews 13:2)</em></p>
+
+    <p><strong>Faith and Integrity</strong><br>
+    We act with trust, integrity, and purpose, placing our values at the center of our work and decisions.<br>
+    <em>(Inspired by Matthew 6:33)</em></p>
+  </div>
+</div>
+
+
+<!-- ✨ NEW: Booking Modal -->
+<div id="bookingModal" class="modal">
+  <div class="modal-window">
+    <span class="close-btn" onclick="closeBooking()">&times;</span>
+    <h2>Book Your Experience ✨</h2>
+    <form id="bookingForm" class="form-content">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <input type="tel" id="phone" placeholder="Your Contact Number" required pattern="[0-9]{7,15}" title="Please enter a valid phone number.">
+      <input type="date" id="date" required>
+      <input type="time" id="time" required>
+      <input type="number" id="guests" placeholder="Number of Guests" required min="1">
+      <input type="text" id="eventType" placeholder="Type of Event (e.g. Wedding, Debut, Christmas Party)" required>
+      <small style="color: gold; font-style: italic; margin-top: -10px;">e.g. Wedding, Debut, Christmas Party, Friend Gathering, etc.</small>
+      <textarea id="message" placeholder="Special Requests"></textarea>
+
+      <div class="reminder-box">
+        <p><strong>Important:</strong><br>
+        Submitting this form does <u>NOT guarantee</u> your reservation.<br>
+        We first need to confirm the availability of your chosen room.<br>
+        Only after confirmation will you be asked to pay a 50% deposit.<br>
+        <br>
+        📧 Please check your email inbox after submitting!</p>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Booking</button>
+    </form>
+  </div>
+</div>
+
+<!-- THANK YOU MODAL -->
+<div id="thankYouModal" class="modal">
+  <div class="modal-window">
+    <span class="close-btn" onclick="closeThankYou()">&times;</span>
+    <h2>Thank You! 🎉</h2>
+    <p>Your booking request has been received.<br>We will email you soon to confirm availability.</p>
+  </div>
+</div>
 <!-- Girls Gallery Modal -->
 <div id="galleryModal" class="modal">
 <span class="close-btn" onclick="closeGallery()">&times;</span>
@@ -342,6 +579,11 @@
 	<img src="vip3.jpg" onclick="zoomImageVip('vip3.jpg')">
         <img src="vip4.jpg" onclick="zoomImageVip('vip4.jpg')">
         <img src="vip5.jpg" onclick="zoomImageVip('vip5.jpg')">
+	<img src="photo_2024-11-27_15-55-34 (2).jpg" onclick="zoomImageVip('photo_2024-11-27_15-55-34 (2).jpg')">
+	<img src="photo_2024-11-27_15-55-34 (3).jpg" onclick="zoomImageVip('photo_2024-11-27_15-55-34 (3).jpg')">
+	<img src="photo_2024-11-27_15-55-34.jpg" onclick="zoomImageVip('photo_2024-11-27_15-55-34.jpg')">
+	<img src="photo_2025-04-08_02-49-14.jpg" onclick="zoomImageVip('photo_2025-04-08_02-49-14.jpg')">
+
 
     </div>
 </div>
@@ -349,6 +591,17 @@
 <img id="zoomedVipImage" class="zoomed" onclick="closeZoomVip()">
 
 <script>
+
+// Core Values Functions
+function openCoreValues() {
+    const modal = document.getElementById('coreValuesModal');
+    modal.style.display = 'block';
+}
+
+function closeCoreValues() {
+    const modal = document.getElementById('coreValuesModal');
+    modal.style.display = 'none';
+}
     // Random Background
     const images = [
         'photo_2024-11-27_15-55-34 (3).jpg',
@@ -493,6 +746,59 @@ function closeZoomVip() {
     zoomed.style.opacity = 0;
     setTimeout(() => { zoomed.style.display = 'none'; }, 300);
 }
+
+function openBooking() {
+    document.getElementById('bookingModal').style.display = 'block';
+  }
+
+  function closeBooking() {
+    document.getElementById('bookingModal').style.display = 'none';
+  }
+
+function openBooking() {
+  document.getElementById('bookingModal').style.display = 'block';
+}
+
+function closeBooking() {
+  document.getElementById('bookingModal').style.display = 'none';
+}
+
+function closeThankYou() {
+  document.getElementById('thankYouModal').style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const bookingForm = document.getElementById('bookingForm');
+  bookingForm.addEventListener('submit', function(e) {
+    e.preventDefault(); // Stop normal submit behavior
+
+    // Collect data (OPTIONAL if you want to send it somewhere)
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    const guests = document.getElementById('guests').value;
+    const eventType = document.getElementById('eventType').value;
+    const message = document.getElementById('message').value;
+
+    console.log({
+      name, email, phone, date, time, guests, eventType, message
+    });
+
+    // Close booking modal
+    closeBooking();
+
+    // Open thank you modal after short delay
+    setTimeout(() => {
+      document.getElementById('thankYouModal').style.display = 'block';
+    }, 500);
+
+    // Reset form
+    bookingForm.reset();
+  });
+});
+
 </script>
 
 </body>
