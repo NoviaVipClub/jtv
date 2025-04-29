@@ -471,9 +471,26 @@ small {
 
 <footer>© 2025 International Luxury JTV and Party Club. All rights reserved.</footer>
 	
-<div style="margin-top: 10px; text-align: center;">
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=noviavipclub.jtv" alt="Visitor Counter">
+<!-- Visitor Counter with Glow -->
+<div style="margin-top: 20px; text-align: center;">
+  <img id="visitorCounter" src="https://visitor-badge.laobi.icu/badge?page_id=noviavipclub.jtv&left_color=gold&right_color=black&left_text=Visitors" alt="Visitor Counter" style="border:2px solid gold; border-radius:8px; padding:5px; background-color:black;">
 </div>
+
+<style>
+  /* ✨ Gold Glow Animation for Visitor Counter */
+  #visitorCounter {
+    animation: glowVisitor 2s infinite alternate;
+  }
+
+  @keyframes glowVisitor {
+    0% {
+      box-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 15px gold;
+    }
+    100% {
+      box-shadow: 0 0 15px gold, 0 0 30px gold, 0 0 45px gold;
+    }
+  }
+</style>
 	
 <div id="coreValuesModal" class="modal">
   <div class="modal-content">
