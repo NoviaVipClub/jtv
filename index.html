@@ -413,6 +413,19 @@ small {
   box-shadow: 0 0 20px gold, 0 0 40px gold, 0 0 60px gold; /* stronger glow on hover */
 }
 
+.event-thumb {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border: 2px solid gold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.event-thumb:hover {
+  transform: scale(1.05);
+}
+
   </style>
 </head>
 
@@ -455,12 +468,14 @@ small {
     📍</a> Location: 1588 Pedro Gil, Corner Del Pilar Street, Malate, Manila<br>6th Floor New Coast Hotel Manila
 </div>
 
+
 <div class="hours" id="hours">Operating Hours: 7:00 PM - 3:00 AM</div>
 
 <div class="links-container">
   <div class="see-girls-link" onclick="openGallery()">[ 👯‍♀️ Come and See the Girls ]</div>
   <div class="see-girls-link" onclick="openVipGallery()">[ 🎉 See Our VIP Rooms ]</div>
   <div class="see-girls-link" onclick="openCoreValues()">[ 📜 Our Core Values ]</div>
+  <div class="see-girls-link" onclick="openEventsGallery()">[ 📽 Events Gallery / Vlog ]</div>
   <div class="see-girls-link" onclick="openBooking()">[ 📅 Book Now ]</div> 
 </div>
 
@@ -477,6 +492,8 @@ small {
 </div>
 
 <style>
+
+
   /* ✨ Gold Glow Animation for Visitor Counter */
   #visitorCounter {
     animation: glowVisitor 2s infinite alternate;
@@ -557,6 +574,7 @@ small {
     <p>Your booking request has been received.<br>We will email you soon to confirm availability.</p>
   </div>
 </div>
+
 <!-- Girls Gallery Modal -->
 <div id="galleryModal" class="modal">
 <span class="close-btn" onclick="closeGallery()">&times;</span>
@@ -587,12 +605,89 @@ small {
 	<img src="girl23.jpg" onclick="zoomImage('girl23.jpg')">
 	<img src="girl24.jpg" onclick="zoomImage('girl24.jpg')">
 	<img src="girl25.jpg" onclick="zoomImage('girl25.jpg')">
-	<img src="girl26.jpg" onclick="zoomImage('girl26.jpg')">    
+	<img src="girl26.jpg" onclick="zoomImage('girl26.jpg')">
+	<img src="girl27.jpg" onclick="zoomImage('girl27.jpg')">  
       
     </div>
 </div>
 
 <img id="zoomedImage" class="zoomed" onclick="closeZoom()">
+
+
+<!-- 🎬 Improved Events Gallery Modal -->
+<div id="eventsGalleryModal" class="modal">
+  <span class="close-btn" onclick="closeEventsGallery()">&times;</span>
+  <div class="modal-content" style="flex-direction: column; align-items: center; max-width: 95%;">
+    <h2 style="color: gold; margin-bottom: 20px;">🎥 Past Events Gallery</h2>
+
+    <!-- Video Gallery -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 30px;">
+      <video controls width="300" height="240" style="margin-bottom: 20px; style="border: 2px solid gold;">
+        <source src="event1.mp4" type="video/mp4">
+      </video>
+      <video controls width="300" height="240" controls style="margin-bottom: 20px; style="border: 2px solid gold;">
+        <source src="event2.mkv" type="video/mp4">
+      </video>
+      <video controls width="300" height="240" style="margin-bottom: 20px; style="border: 2px solid gold;">
+        <source src="event3.mp4" type="video/mp4">
+      </video>
+	<video controls width="300" height="240" style="margin-bottom: 20px; style="border: 2px solid gold;">
+        <source src="event4.mp4" type="video/mp4">
+      </video>
+ 	<video controls width="300" height="240" style="margin-bottom: 20px; style="border: 2px solid gold;">
+        <source src="event5.mp4" type="video/mp4">
+      </video>
+	<video controls width="300" height="240" style="margin-bottom: 20px; style="border: 2px solid gold;">
+        <source src="event6.mp4" type="video/mp4">
+      </video>
+	<video controls width="300" height="240" style="margin-bottom: 20px; style="border: 2px solid gold;">
+        <source src="event7.mp4" type="video/mp4">
+      </video>
+<video controls width="300" height="240" style="margin-bottom: 20px; style="border: 2px solid gold;">
+        <source src="event8.mov" type="video/mp4">
+      </video>
+<video controls width="300" height="240" style="margin-bottom: 20px; style="border: 2px solid gold;">
+        <source src="event9.mov" type="video/mp4">
+      </video>
+<video controls width="300" height="240" style="margin-bottom: 20px; style="border: 2px solid gold;">
+        <source src="event10.mov" type="video/mp4">
+      </video>
+<video controls width="300" height="240" style="margin-bottom: 20px; style="border: 2px solid gold;">
+        <source src="event11.mp4" type="video/mp4">
+      </video>
+<video controls width="300" height="240" style="margin-bottom: 20px; style="border: 2px solid gold;">
+        <source src="vlog1.mov" type="video/mp4">
+      </video>
+     
+</div>
+
+   <!-- Photo Grid (4 columns layout) -->
+  <div id="eventsPhotoGrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; justify-items: center;">
+  <img src="photo1.jpg" onclick="openEventSlideshow(0)" class="event-thumb">
+  <img src="photo2.jpg" onclick="openEventSlideshow(1)" class="event-thumb">
+  <img src="photo3.jpg" onclick="openEventSlideshow(2)" class="event-thumb">
+  <img src="photo4.jpg" onclick="openEventSlideshow(3)" class="event-thumb">
+  <img src="photo5.jpg" onclick="openEventSlideshow(4)" class="event-thumb">
+  <img src="photo6.jpg" onclick="openEventSlideshow(5)" class="event-thumb">
+  <img src="photo7.jpg" onclick="openEventSlideshow(6)" class="event-thumb">
+  <img src="photo8.jpg" onclick="openEventSlideshow(7)" class="event-thumb">
+  <img src="photo9.jpg" onclick="openEventSlideshow(8)" class="event-thumb">
+  <img src="photo10.jpg" onclick="openEventSlideshow(9)" class="event-thumb">
+</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slideshow Modal for Events -->
+<div id="eventSlideshowModal" class="modal" style="display: none;">
+  <span class="close-btn" onclick="closeEventSlideshow()">&times;</span>
+  <div style="position: relative; text-align: center;">
+    <img id="slideshowEventImage" src="" style="max-width: 90%; max-height: 80vh; border: 3px solid gold; border-radius: 10px;">
+    <button onclick="prevEventSlide()" style="position: absolute; top: 50%; left: 20px; font-size: 40px; color: gold; background: transparent; border: none; cursor: pointer;">❮</button>
+    <button onclick="nextEventSlide()" style="position: absolute; top: 50%; right: 20px; font-size: 40px; color: gold; background: transparent; border: none; cursor: pointer;">❯</button>
+  </div>
+</div>
+
 
 <!-- ✨ VIP Gallery Modal -->
 <div id="vipGalleryModal" class="modal">
@@ -616,6 +711,8 @@ small {
 </div>
 
 <img id="zoomedVipImage" class="zoomed" onclick="closeZoomVip()">
+
+
 
 <script>
 
@@ -760,6 +857,36 @@ function closeVipGallery() {
     }
 }
 
+
+// 🎬 Events Gallery Functions
+const eventImages = ['event1.jpg', 'event2.jpg', 'event3.jpg'];
+let currentEventIndex = 0;
+
+function openEventsGallery() {
+  document.getElementById('eventsGalleryModal').style.display = 'block';
+  showEventImage(currentEventIndex);
+}
+
+function closeEventsGallery() {
+  document.getElementById('eventsGalleryModal').style.display = 'none';
+}
+
+function showEventImage(index) {
+  const img = document.getElementById('eventImage');
+  img.src = eventImages[index];
+}
+
+function prevEventImage() {
+  currentEventIndex = (currentEventIndex - 1 + eventImages.length) % eventImages.length;
+  showEventImage(currentEventIndex);
+}
+
+function nextEventImage() {
+  currentEventIndex = (currentEventIndex + 1) % eventImages.length;
+  showEventImage(currentEventIndex);
+}
+
+
 function zoomImageVip(src) {
     const zoomed = document.getElementById('zoomedVipImage');
     zoomed.src = src;
@@ -825,6 +952,33 @@ document.addEventListener('DOMContentLoaded', function() {
     bookingForm.reset();
   });
 });
+
+// Slideshow Logic
+const eventPhotos = [
+  'photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg', 'photo5.jpg',
+  'photo6.jpg', 'photo7.jpg', 'photo8.jpg', 'photo9.jpg', 'photo10.jpg'
+];
+let currentEventSlide = 0;
+
+function openEventSlideshow(index) {
+  currentEventSlide = index;
+  document.getElementById('eventSlideshowModal').style.display = 'block';
+  document.getElementById('slideshowEventImage').src = eventPhotos[currentEventSlide];
+}
+
+function closeEventSlideshow() {
+  document.getElementById('eventSlideshowModal').style.display = 'none';
+}
+
+function nextEventSlide() {
+  currentEventSlide = (currentEventSlide + 1) % eventPhotos.length;
+  document.getElementById('slideshowEventImage').src = eventPhotos[currentEventSlide];
+}
+
+function prevEventSlide() {
+  currentEventSlide = (currentEventSlide - 1 + eventPhotos.length) % eventPhotos.length;
+  document.getElementById('slideshowEventImage').src = eventPhotos[currentEventSlide];
+}
 
 </script>
 
