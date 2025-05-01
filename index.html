@@ -496,7 +496,6 @@ small {
     📍</a> Location: 1588 Pedro Gil, Corner Del Pilar Street, Malate, Manila<br>6th Floor New Coast Hotel Manila
 </div>
 
-
 <div class="hours" id="hours">Operating Hours: 7:00 PM - 3:00 AM</div>
 
 <div class="links-container">
@@ -790,16 +789,17 @@ function closeCoreValues() {
 
     // Language change
     function changeLanguage(lang) {
-    const title = document.getElementById('main-title');
-    const tagline = document.getElementById('tagline');
-    const para1 = document.getElementById('paragraph1');
-    const para2 = document.getElementById('paragraph2');
-    const para3 = document.getElementById('paragraph3');  
-    const address = document.getElementById('address');
-    const hours = document.getElementById('hours');
+    	const title = document.getElementById('main-title');
+    	const tagline = document.getElementById('tagline');
+    	const para1 = document.getElementById('paragraph1');
+    	const para2 = document.getElementById('paragraph2');
+    	const para3 = document.getElementById('paragraph3');
+    	const address = document.getElementById('address');
+    	const hours = document.getElementById('hours');
 
-    title.style.opacity = tagline.style.opacity = para1.style.opacity = para2.style.opacity = para3.style.opacity = address.style.opacity = hours.style.opacity = 0;
-    
+    title.style.opacity = tagline.style.opacity = para1.style.opacity =
+    para2.style.opacity = para3.style.opacity = address.style.opacity = hours.style.opacity = 0;
+
     setTimeout(() => {
         if (lang === 'korean') {
             document.body.style.fontFamily = "'Noto Sans KR', sans-serif";
@@ -808,7 +808,7 @@ function closeCoreValues() {
             para1.innerHTML = "우아함, 흥분, 휴식을 즐길 수 있는 세계로 발을 들여보세요. 국제 고급 JTV 및 파티 클럽에서 친구들과 함께 프라이빗 VIP룸을 즐기고, 프리미엄 음료를 맛보며 잊지 못할 추억을 만드세요.";
             para2.innerHTML = "럭셔리한 경험에 몰입하세요. 밤은 항상 젊고 분위기는 항상 뜨겁습니다. 프라이빗 파티, 즉흥 파티, 또는 편안한 저녁을 위한 완벽한 장소입니다.";
             para3.innerHTML = "최첨단 조명, 최고급 사운드 시스템, 그리고 모든 요구를 정중하게 응대하는 세심한 직원들이 함께하여, 이곳의 모든 순간은 깊은 인상을 남기기 위해 설계되었습니다. 세계 각국의 칵테일, 고급 와인, 독점적인 주류로 구성된 엄선된 셀렉션은 언제나 최고의 기준으로 건배할 수 있도록 합니다.<br><br>하이테크 프라이빗 스위트룸에서 친구들과 함께 노래방을 즐기고, 특별하게 준비된 메뉴에서 고급 요리를 맛보거나, 화려한 조명 아래에서 밤새 춤을 즐겨보세요 — 우리 클럽의 모든 공간은 오감의 만족, 사람과의 연결, 그리고 고급스러운 경험을 위해 만들어졌습니다.<br><br>이곳은 럭셔리와 열정이 만나는 곳입니다. 스타일과 편안함이 조화를 이루며, 매 순간이 이야기로 남을 특별한 밤이 됩니다.";
-	    address.innerHTML = "📍 Location: 1588 Pedro Gil, Corner Del Pilar Street, Malate Manila<br>6th Floor New Coast Hotel Manila";
+            address.innerHTML = "📍 Location: 1588 Pedro Gil, Corner Del Pilar Street, Malate Manila<br>6th Floor New Coast Hotel Manila";
             hours.innerHTML = "운영 시간: 오후 7시 ~ 오전 3시";
         } else if (lang === 'japanese') {
             document.body.style.fontFamily = "'Noto Sans JP', sans-serif";
@@ -817,28 +817,29 @@ function closeCoreValues() {
             para1.innerHTML = "優雅さ、興奮、リラクゼーションの世界へ足を踏み入れてください。国際高級JTV＆パーティークラブで、友人たちと共にプライベートVIPルームを楽しみ、プレミアムドリンクを味わい、忘れられない思い出を作りましょう。";
             para2.innerHTML = "贅沢な体験に浸りましょう。夜は常に若く、雰囲気は常に高揚しています。プライベートパーティー、即興のパーティー、またはくつろぎの夜に最適な場所です。";
             para3.innerHTML = "最先端の照明設備、最高品質のサウンドシステム、そしてお客様のすべてのニーズに応える丁寧なスタッフにより、ここでのすべての瞬間が忘れられない体験となるよう設計されています。世界各国のカクテル、上質なワイン、希少なスピリッツを取り揃えたドリンクセレクションで、常に最高の乾杯をお楽しみください。<br><br>ハイテクな個室で友達とカラオケを楽しんだり、特別メニューからのグルメ料理を堪能したり、煌めくライトの下で夜通し踊ったりと、クラブの隅々まで贅沢さとつながり、そして極上の体験のために作られています。<br><br>ここでは、ラグジュアリーと情熱が出会い、スタイルと快適さが融合します。そして、すべての夜が語り継がれる物語になるのです。";
-	    address.innerHTML = "📍 Location: 1588 Pedro Gil, Corner Del Pilar Street, Malate Manila<br>6th Floor New Coast Hotel Manila";
+            address.innerHTML = "📍 Location: 1588 Pedro Gil, Corner Del Pilar Street, Malate Manila<br>6th Floor New Coast Hotel Manila";
             hours.innerHTML = "営業時間: 午後7時〜午前3時";
         } else if (lang === 'chinese') {
             document.body.style.fontFamily = "'Noto Sans SC', sans-serif";
-            title.innerHTML = "欢迎来到国际奢华JTV与派对俱乐部";
-            tagline.innerHTML = "在这里，想象变为现实，女孩们比停车场还火热";
-            para1.innerHTML = "踏入一个优雅、激情与放松的世界。在国际奢华JTV与派对俱乐部，与朋友们共享专属VIP包间，品尝顶级饮品，创造难忘回忆。";
-            para2.innerHTML = "沉浸在奢华体验中。夜晚永远年轻，气氛永远高涨。无论是私人派对、即兴聚会，还是一个轻松的夜晚，这里都是您完美的选择。";
-	    para3.innerHTML = "配备最先进的灯光系统、顶级音响设备，以及随时准备为您服务的贴心员工，这里每一个瞬间都为令人印象深刻而打造。我们精心挑选的国际鸡尾酒、优质葡萄酒和独家烈酒，确保您的酒杯始终充满高品质的享受。<br><br>与朋友在高科技私人包厢中享受卡拉OK，品尝我们专属菜单中的美食，或在炫目的灯光下尽情跳舞——俱乐部的每一个角落都为奢华、连结和非凡体验而设计。<br><br>在这里，奢华与激情相遇，风格与舒适并存。每个夜晚，都是值得铭记的故事的开始。";
-            address.innerHTML = "📍 地址: 菲律宾马尼拉马拉特区Pedro Gil街1588号与Del Pilar街交界<br>新海岸酒店马尼拉6楼";
-            hours.innerHTML = "营业时间: 晚上7:00 - 凌晨3:00";
+            title.innerHTML = "欢迎来到国际奢华JTV和派对俱乐部";
+            tagline.innerHTML = "想象力与现实相遇，女孩们比停车场还火热";
+            para1.innerHTML = "踏入一个优雅、兴奋与放松交织的世界。在我们的国际奢华JTV和派对俱乐部，您和朋友可以享受私人世界级VIP包厢，品味高级饮品，创造难忘回忆。";
+            para2.innerHTML = "沉浸在一个夜晚永远年轻、气氛永远高涨的奢华体验中。无论是私人聚会、即兴派对还是一个放松的夜晚，这里都是完美的选择。";
+            para3.innerHTML = "配备最先进的灯光系统、顶级音响设备，以及随时准备为您服务的贴心员工，这里每一个瞬间都为令人印象深刻而打造。我们精心挑选的国际鸡尾酒、优质葡萄酒和独家烈酒，确保您的酒杯始终充满高品质的享受。<br><br>与朋友在高科技私人包厢中享受卡拉OK，品尝我们专属菜单中的美食，或在炫目的灯光下尽情跳舞——俱乐部的每一个角落都为奢华、连结和非凡体验而设计。<br><br>在这里，奢华与激情相遇，风格与舒适并存。每个夜晚，都是值得铭记的故事的开始。";
+            address.innerHTML = "📍 位置：马尼拉马拉特Pedro Gil街1588号，转角Del Pilar街<br>新海岸酒店6楼";
+            hours.innerHTML = "营业时间：晚上7点至凌晨3点";
         } else {
             document.body.style.fontFamily = "'Helvetica Neue', sans-serif";
             title.innerHTML = "Welcome <br> to <br> International Luxury JTV and Party Club";
             tagline.innerHTML = "Where Imagination Meets Reality and Where the Girls are Hotter than the Parking Lot";
             para1.innerHTML = "Step into a world of elegance, excitement, and relaxation. At our International Luxury JTV and Party Club, you and your friends can enjoy private,<br> world-class VIP rooms, sip premium drinks, and create unforgettable memories.<br> Whether you seek a night of vibrant energy or a relaxing evening, our club offers an exclusive atmosphere tailored just for you.";
             para2.innerHTML = "Immerse yourself in a luxurious experience where the night is always young and the vibes are always high.<br> Private celebrations, spontaneous parties, or just a night to unwind — it's the perfect place for an unforgettable night.";
-	    para3.innerHTML = "With state-of-the-art lighting, top-tier sound systems, and an attentive staff ready to serve your every need, every moment here is designed to impress. Our curated selection of international cocktails, fine wines, and exclusive spirits ensures your glass is always raised to the highest standard.<br><br>Enjoy karaoke with friends in high-tech private suites, indulge in gourmet bites from our specially crafted menu, or dance the night away under dazzling lights — every corner of our club is built for indulgence, connection, and elevated experiences.<br><br>Here, luxury meets passion. Style meets comfort. And every night is a chance to create stories worth telling.";
+            para3.innerHTML = "With state-of-the-art lighting, top-tier sound systems, and an attentive staff ready to serve your every need, every moment here is designed to impress. Our curated selection of international cocktails, fine wines, and exclusive spirits ensures your glass is always raised to the highest standard.<br><br>Enjoy karaoke with friends in high-tech private suites, indulge in gourmet bites from our specially crafted menu, or dance the night away under dazzling lights — every corner of our club is built for indulgence, connection, and elevated experiences.<br><br>Here, luxury meets passion. Style meets comfort. And every night is a chance to create stories worth telling.";
             address.innerHTML = "📍 Location: 1588 Pedro Gil, Corner Del Pilar Street, Malate Manila<br>6th Floor New Coast Hotel Manila";
             hours.innerHTML = "Operating Hours: 7:00 PM - 3:00 AM";
         }
-         title.style.opacity = tagline.style.opacity = para1.style.opacity =
+
+        title.style.opacity = tagline.style.opacity = para1.style.opacity =
         para2.style.opacity = para3.style.opacity = address.style.opacity = hours.style.opacity = 1;
     }, 400);
 }
