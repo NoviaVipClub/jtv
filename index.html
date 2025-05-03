@@ -8,6 +8,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     /* Base Styles */
+
+	.background-container {
+      	position: fixed;
+      	top: 0; left: 0;
+      	width: 100%;
+      	height: 100%;
+      	z-index: -1;
+      	background-size: cover;
+      	background-position: center;
+      	transition: opacity 1.5s ease-in-out;
+       	pointer-events: none;
+    }
+
+    @keyframes fadeBackground {
+      0%   { background-image: url('photo_2024-11-27_15-55-34 (3).jpg.jpg'); opacity: 1; }
+      25%  { background-image: url('photo_2024-11-27_15-55-34 (2).jpg'); opacity: 0.8; }
+      50%  { background-image: url('photo_2024-11-27_15-55-34.jpg'); opacity: 1; }
+      75%  { background-image: url('vip2.jpg'); opacity: 0.8; }
+      100% { background-image: url('vip5.jpg'); opacity: 1; }
+    }
+	  
     body {
       margin: 0;
       font-family: 'Helvetica Neue', sans-serif;
@@ -461,6 +482,7 @@ small {
 </head>
 
 <body>
+<div class="background-container">	
 
 <div id="language-selector">
   <button onclick="changeLanguage('english')">🇺🇸 English</button>
@@ -1065,6 +1087,6 @@ function prevEventSlide() {
 }
 
 </script>
-
+</div>
 </body>
 </html>
