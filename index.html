@@ -459,13 +459,13 @@ small {
 }
 
 .thumbnail {
-  width: 100px;
+  width: 150px;
   height: auto;
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
 }
 
-.thumbnail:hover {
+.thumbnail.enlarged {
   transform: scale(2);
   z-index: 10;
   position: relative;
@@ -535,7 +535,7 @@ small {
 </div>	
 
 <div class="thumbnail-wrapper">
-  <img src="0857.jpg" alt="Preview" class="thumbnail">
+  <img src="0857.jpg" alt="Click to enlarge" class="thumbnail">
 </div>
 	
 <div class="links-container">
@@ -824,6 +824,14 @@ small {
 
 <script>
 
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".thumbnail").forEach(function (img) {
+      img.addEventListener("click", function () {
+        img.classList.toggle("enlarged");
+      });
+    });
+  });
+	
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("bookingForm");
 
