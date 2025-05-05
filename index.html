@@ -459,15 +459,17 @@ small {
 }
 
 .thumbnail {
-  width: 100px; /* Adjust as needed */
+  width: 100px;
   height: auto;
-  transition: transform 0.3s ease-in-out; /* Smooth transition */
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .thumbnail:hover {
-  transform: scale(2); /* Enlarge to twice the original size */
+  transform: scale(2);
+  z-index: 10;
+  position: relative;
 }	  
-	  
 
   </style>
 </head>
@@ -532,8 +534,10 @@ small {
   📱 09544062582
 </div>	
 
-<img src="0857.jpg" class="thumbnail" />	
-
+<div class="thumbnail-wrapper">
+  <img src="0857.jpg" alt="Preview" class="thumbnail">
+</div>
+	
 <div class="links-container">
   <div class="see-girls-link" onclick="">[ 👯‍♀️ Come and See the Girls ]</div>
   <div class="see-girls-link" onclick="openVipGallery()">[ 🎉 See Our VIP Rooms ]</div>
