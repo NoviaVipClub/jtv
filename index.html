@@ -458,6 +458,17 @@ small {
   transform: scale(1.05);
 }
 
+.thumbnail {
+  width: 100px; /* Adjust as needed */
+  height: auto;
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.thumbnail:hover {
+  transform: scale(2); /* Enlarge to twice the original size */
+}	  
+	  
+
   </style>
 </head>
 
@@ -520,6 +531,8 @@ small {
   ☎️ +63 2 8252 6888 <br>
   📱 09544062582
 </div>	
+
+<img src="your-image.jpg" class="thumbnail" />	
 
 <div class="links-container">
   <div class="see-girls-link" onclick="">[ 👯‍♀️ Come and See the Girls ]</div>
