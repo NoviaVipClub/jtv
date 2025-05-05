@@ -598,6 +598,21 @@ small {
       <input type="date" id="date" name="date" required>
       <input type="time" id="time" name="time" required>
       <input type="number" id="guests" name="guests" placeholder="Number of Guests" required min="1">
+
+      <!-- ✅ New Room Selection -->
+      <select id="room" name="room" required>
+        <option value="" disabled selected>Select a Room</option>
+        <option value="VIP#1">VIP#1</option>
+        <option value="VIP#2">VIP#2</option>
+        <option value="VIP#3">VIP#3</option>
+        <option value="VIP#5">VIP#5</option>
+        <option value="VIP#6">VIP#6</option>
+        <option value="VIP#7">VIP#7</option>
+        <option value="VIP#8">VIP#8</option>
+        <option value="VIP#9">VIP#9</option>
+        <option value="VIP#10">VIP#10</option>
+      </select>
+
       <input type="text" id="eventType" name="eventType" placeholder="Type of Event (e.g. Wedding, Debut, Christmas Party)" required>
       <small style="color: gold; font-style: italic; margin-top: -10px;">e.g. Wedding, Debut, Christmas Party, Friend Gathering, etc.</small>
       <textarea id="message" name="message" placeholder="Special Requests"></textarea>
