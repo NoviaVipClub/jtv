@@ -93,6 +93,20 @@
             transition: color 0.3s ease, transform 0.3s ease;
             animation: fadeInGlow 2s ease forwards;
         }
+
+     .thumbnail {
+      width: 150px;
+      height: auto;
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .thumbnail.enlarged {
+      transform: scale(2);
+      z-index: 10;
+      position: relative;
+    }
+	  
         .see-girls-link:nth-child(2) {
             animation-delay: 0.5s;
         }
@@ -458,19 +472,6 @@ small {
   transform: scale(1.05);
 }
 
-.thumbnail {
-  width: 150px;
-  height: auto;
-  transition: transform 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-.thumbnail.enlarged {
-  transform: scale(2);
-  z-index: 10;
-  position: relative;
-}	  
-
   </style>
 </head>
 
@@ -534,9 +535,9 @@ small {
   📱 09544062582
 </div>	
 
-<div class="thumbnail-wrapper">
+
   <img src="0857.jpg" alt="Click to enlarge" class="thumbnail">
-</div>
+
 	
 <div class="links-container">
   <div class="see-girls-link" onclick="">[ 👯‍♀️ Come and See the Girls ]</div>
