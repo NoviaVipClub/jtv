@@ -63,11 +63,22 @@
     text-shadow: 1px 1px 5px rgba(0, 255, 255, 0.8);
 }
     p {
-    font-size: 1.1em;
-    color: #FFD700;
-    line-height: 1.8;
-    margin: 20px 0;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  font-weight: bold !important;
+  color: #FFD700 !important;
+  text-shadow:
+    1px 1px 3px black,
+    0 0 5px gold;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 960px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 1.2em;
+  z-index: 3;
+  position: relative;
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
 .address, .hours {
@@ -472,27 +483,7 @@ small {
   transform: scale(1.05);
 }
 
-  
-p {
-  font-weight: bold !important;
-  color: #FFD700 !important;
-  text-shadow:
-    1px 1px 3px black,
-    0 0 5px gold;
-  background: rgba(0, 0, 0, 0.25); /* Optional: slight backdrop */
-  padding: 15px;
-  margin: 20px auto;
-  max-width: 960px;
-  box-sizing: border-box;
-  text-align: center;
-  font-size: 1.2em;
-  z-index: 3;
-  position: relative;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-}
-
-</style>
+  </style>
 </head>
 
 <body>
@@ -796,8 +787,16 @@ p {
 
 <!-- ✨ VIP Gallery Modal -->
 <div id="vipGalleryModal" class="modal">
-    <div id="vipGalleryContent" class="modal-content">
-        <span class="close-btn" onclick="closeVipGallery()">&times;</span>
+    
+<div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 30px;">
+  <div style="flex: 1 1 500px; max-width: 500px; color: gold; font-size: 1em; text-align: left; line-height: 1; padding: 10px;">
+    <p><strong>Our VIP rooms redefine upscale entertainment</strong>, tailored for discerning guests who expect more than just a night out—they seek an unforgettable experience. Designed with impeccable attention to detail, the interiors blend soft white and opulent gold accents, creating a warm yet refined sanctuary where elegance meets comfort.</p>
+    <p>Plush seating, atmospheric lighting, and romantic undertones set the perfect mood, whether you're sharing an intimate evening or celebrating in style.</p>
+    <p><strong>What truly sets this venue apart</strong> is its world-class JTV/KTV experience—undeniably the best in the area. Outfitted with state-of-the-art sound systems and an extensive, globally curated song selection, each room transforms into a private concert stage where guests can sing their hearts out in pristine audio quality.</p>
+    <p>With an international look and feel, this is more than just a karaoke lounge—it's a destination. A one-of-a-kind haven where luxury, passion, and performance meet.</p>
+  </div>
+  <div id="vipGalleryContent" class="modal-content" style="flex: 1 1 600px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+<span class="close-btn" onclick="closeVipGallery()">&times;</span>
         <img src="vip1.jpg" onclick="zoomImageVip('vip1.jpg')">
         <img src="vip2.jpg" onclick="zoomImageVip('vip2.jpg')">
 	<img src="vip3.jpg" onclick="zoomImageVip('vip3.jpg')">
@@ -1024,7 +1023,13 @@ const eventImages = ['event1.jpg', 'event2.jpg', 'event3.jpg'];
 let currentEventIndex = 0;
 
 function openEventsGallery() {
-  document.getElementById('eventsGalleryModal').style.display = 'block';
+  const modal = document.getElementById('eventsGalleryModal');
+  const content = modal.querySelector('.modal-content');
+  modal.style.display = 'block';
+  content.style.transform = 'scale(0.75)';
+  content.style.transformOrigin = 'top center';
+  content.style.transition = 'transform 0.3s ease';
+  content.style.margin = '0 auto';
   showEventImage(currentEventIndex);
 }
 
