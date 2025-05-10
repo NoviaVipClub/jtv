@@ -1228,6 +1228,10 @@ function zoomImageCustom(src) {
   zoomed.style.display = 'block';
   overlay.style.display = 'block';
   closeBtn.style.display = 'block';
+
+  // Disable background scroll
+  document.body.style.overflow = 'hidden';
+
   setTimeout(() => {
     zoomed.style.opacity = 1;
     overlay.style.opacity = 1;
@@ -1240,13 +1244,16 @@ function closeZoomCustom() {
   const closeBtn = document.getElementById('customCloseBtn');
   zoomed.style.opacity = 0;
   overlay.style.opacity = 0;
+
+  // Re-enable background scroll
+  document.body.style.overflow = '';
+
   setTimeout(() => {
     zoomed.style.display = 'none';
     overlay.style.display = 'none';
     closeBtn.style.display = 'none';
   }, 300);
 }
-
 </script>
 
 </body>
