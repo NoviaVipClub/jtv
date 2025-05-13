@@ -497,43 +497,54 @@ small {
 }
 
 .custom-zoomed {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 90%;
-  max-height: 90%;
-  z-index: 1001;
-  border: 4px solid gold;
-  border-radius: 10px;
-  background-color: black;
-  box-shadow: 0 0 30px gold;
-}
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 98%;
+      max-height: 98%;
+      z-index: 1001;
+      border: 4px solid gold;
+      border-radius: 10px;
+      background-color: black;
+      box-shadow: 0 0 30px gold;
+      cursor: pointer;
+    }
 
-.custom-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.85);
-  z-index: 1000;
-}
+    .custom-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
+    }
 
-.custom-close-btn {
-  display: none;
-  position: fixed;
-  top: 20px;
-  right: 30px;
-  font-size: 40px;
-  color: gold;
-  z-index: 1002;
-  cursor: pointer;
-  font-weight: bold;
-}
+    .custom-close-btn {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: gold;
+      z-index: 1002;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
+    .hover-zoom {
+      width: 200px;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .hover-zoom:hover {
+      transform: scale(1.05);
+    }
 </style>
 </head>
 
@@ -606,25 +617,24 @@ small {
 
 <!-- New Zoom Image Section -->
 <div style="display: flex; justify-content: center; gap: 20px; margin-top: 50px; flex-wrap: wrap;">
-  <img
-    src="NOVIA VIP SERVICE 2.jpg"
-    alt="Image 1"
-    class="hover-zoom"
-    onclick="zoomImageCustom('NOVIA VIP SERVICE 2.jpg')"
-  >
-  <img
-    src="0857.jpg"
-    alt="Image 2"
-    class="hover-zoom"
-    onclick="zoomImageCustom('0857.jpg')"
-  >
-</div>
+    <img
+      src="NOVIA VIP SERVICE 2.jpg"
+      alt="Image 1"
+      class="hover-zoom"
+      onclick="zoomImageCustom('NOVIA VIP SERVICE 2.jpg')"
+    >
+    <img
+      src="0857.jpg"
+      alt="Image 2"
+      class="hover-zoom"
+      onclick="zoomImageCustom('0857.jpg')"
+    >
+  </div>
 
-<!-- Zoom Modal Overlay -->
-<div class="custom-overlay" id="customOverlay" onclick="closeZoomCustom()"></div>
-<img id="zoomedImageCustom" class="custom-zoomed" onclick="closeZoomCustom()">
-<div class="custom-close-btn" id="customCloseBtn" onclick="closeZoomCustom()">&times;</div>
-
+  <!-- Zoom Modal Overlay -->
+  <div class="custom-overlay" id="customOverlay" onclick="closeZoomCustom()"></div>
+  <img id="zoomedImageCustom" class="custom-zoomed">
+  <div class="custom-close-btn" id="customCloseBtn" onclick="closeZoomCustom()">&times;</div>
 </div>
 
 <!-- Image arrow separator -->
@@ -1220,41 +1230,79 @@ function prevEventSlide() {
 }
 
 
-function zoomImageCustom(src) {
-  const zoomed = document.getElementById('zoomedImageCustom');
-  const overlay = document.getElementById('customOverlay');
-  const closeBtn = document.getElementById('customCloseBtn');
-  zoomed.src = src;
-  zoomed.style.display = 'block';
-  overlay.style.display = 'block';
-  closeBtn.style.display = 'block';
+const imageList = [
+      "NOVIA VIP SERVICE 2.jpg",
+      "Novia VIP System Menu.jpg",	
+      "Vip Service-Korean.jpg",
+      "0857.jpg",
+      // Add more images here if needed
+    ];
 
-  // Disable background scroll
-  document.body.style.overflow = 'hidden';
+    let currentImageIndex = 0;
 
-  setTimeout(() => {
-    zoomed.style.opacity = 1;
-    overlay.style.opacity = 1;
-  }, 50);
-}
+    function zoomImageCustom(src) {
+      const zoomed = document.getElementById('zoomedImageCustom');
+      const overlay = document.getElementById('customOverlay');
+      const closeBtn = document.getElementById('customCloseBtn');
 
-function closeZoomCustom() {
-  const zoomed = document.getElementById('zoomedImageCustom');
-  const overlay = document.getElementById('customOverlay');
-  const closeBtn = document.getElementById('customCloseBtn');
-  zoomed.style.opacity = 0;
-  overlay.style.opacity = 0;
+      currentImageIndex = imageList.indexOf(src);
+      if (currentImageIndex === -1) currentImageIndex = 0;
 
-  // Re-enable background scroll
-  document.body.style.overflow = '';
+      zoomed.src = imageList[currentImageIndex];
+      zoomed.style.display = 'block';
+      overlay.style.display = 'block';
+      closeBtn.style.display = 'block';
 
-  setTimeout(() => {
-    zoomed.style.display = 'none';
-    overlay.style.display = 'none';
-    closeBtn.style.display = 'none';
-  }, 300);
-}
-</script>
+      document.body.style.overflow = 'hidden';
+
+      setTimeout(() => {
+        zoomed.style.opacity = 1;
+        overlay.style.opacity = 1;
+      }, 50);
+    }
+
+    function closeZoomCustom() {
+      const zoomed = document.getElementById('zoomedImageCustom');
+      const overlay = document.getElementById('customOverlay');
+      const closeBtn = document.getElementById('customCloseBtn');
+
+      zoomed.style.opacity = 0;
+      overlay.style.opacity = 0;
+
+      document.body.style.overflow = '';
+
+      setTimeout(() => {
+        zoomed.style.display = 'none';
+        overlay.style.display = 'none';
+        closeBtn.style.display = 'none';
+      }, 300);
+    }
+
+    function showNextImage() {
+      currentImageIndex = (currentImageIndex + 1) % imageList.length;
+      document.getElementById('zoomedImageCustom').src = imageList[currentImageIndex];
+    }
+
+    function showPreviousImage() {
+      currentImageIndex = (currentImageIndex - 1 + imageList.length) % imageList.length;
+      document.getElementById('zoomedImageCustom').src = imageList[currentImageIndex];
+    }
+
+    // Clicking the zoomed image will show the next image
+    document.getElementById('zoomedImageCustom').addEventListener('click', function (event) {
+      event.stopPropagation();
+      showNextImage();
+    });
+
+    // Allow navigation using arrow keys
+    document.addEventListener('keydown', function (e) {
+      const zoomed = document.getElementById('zoomedImageCustom');
+      if (zoomed.style.display === 'block') {
+        if (e.key === 'ArrowRight') showNextImage();
+        if (e.key === 'ArrowLeft') showPreviousImage();
+        if (e.key === 'Escape') closeZoomCustom();
+      }
+    });</script>
 
 </body>
 </html>
