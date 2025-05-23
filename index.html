@@ -38,13 +38,13 @@
       position: relative;z-index: 2;
       transition: opacity 0.5s ease;
     }
-    video.logo {
-      width: 300px;
-      max-width: 90%;
-      margin-bottom: 4px;
-      border: 1px solid gold;
-      border-radius: 0;
-    }
+video.logo {
+  width: 300px;
+  max-width: 90%;
+  margin-bottom: 4px;
+  border: 1px solid gold;
+  border-radius: 0;
+}
    h1#main-title {
     font-size: 2.3em;
     font-weight: 700;
@@ -166,12 +166,12 @@
      }
 
     /* Language Selector */
-    #language-selector {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 3;
-    }
+#language-selector {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 3;
+}
     #language-selector button {
       margin: 0 5px;
       padding: 8px 15px;
@@ -190,8 +190,8 @@
       display: none;
       position: fixed;
       z-index: 5;
-      padding-top: 80px;
-      left: 0; top: 0; width: 100%; height: 100%;
+      padding-top: 75px;
+      left: 0; top: 0; width: 100%; height: 90%;
       overflow: auto;
       background-color: rgba(0,0,0,0.8);
     }
@@ -557,12 +557,22 @@ small {
   <button onclick="changeLanguage('chinese')">🇨🇳 中文</button>
 </div>
 
+<div style="text-align: left;">
 <video class="logo" autoplay muted loop playsinline>
   <source src="novia.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+</div>
 
-<h1 id="main-title">Welcome <br> to <br> International Luxury JTV and Party Club</h1>
+<div class="links-container">
+<div class="see-girls-link" id="btnSeeGirls" onclick="openGallery()">[ 👯‍♀️ Come and See the Girls ]</div>
+<div class="see-girls-link" id="btnVipRooms" onclick="openVipGallery()">[ 🎉 See Our VIP Rooms ]</div>
+<div class="see-girls-link" id="btnCoreValues" onclick="openCoreValues()">[ 📜 Our Core Values ]</div>
+<div class="see-girls-link" id="btnEvents" onclick="openEventsGallery()">[ 📽 Events -  Video & Photo Gallery ]</div>
+<div class="see-girls-link" id="btnBookNow" onclick="openBooking()">[ 📅 Book Now ]</div>
+</div>
+
+<h1 id="main-title">Welcome to the Premier Destination for Nightlife Sophistication.<br> International Luxury JTV & Party Club. </h1>
 <div class="tagline" id="tagline">Where Imagination Meets Reality and Where the Girls are Hotter than the Parking Lot</div>
 
 <p id="paragraph1">
@@ -609,11 +619,12 @@ small {
 </div>  
     
 <div class="links-container">
-<div class="see-girls-link" id="btnSeeGirls" onclick="">[ 👯‍♀️ Come and See the Girls ]</div>
+<div class="see-girls-link" id="btnSeeGirls" onclick="openGallery()">[ 👯‍♀️ Come and See the Girls ]</div>
 <div class="see-girls-link" id="btnVipRooms" onclick="openVipGallery()">[ 🎉 See Our VIP Rooms ]</div>
 <div class="see-girls-link" id="btnCoreValues" onclick="openCoreValues()">[ 📜 Our Core Values ]</div>
 <div class="see-girls-link" id="btnEvents" onclick="openEventsGallery()">[ 📽 Events -  Video & Photo Gallery ]</div>
 <div class="see-girls-link" id="btnBookNow" onclick="openBooking()">[ 📅 Book Now ]</div>
+</div>
 
 <!-- New Zoom Image Section -->
 <div style="display: flex; justify-content: center; gap: 20px; margin-top: 50px; flex-wrap: wrap;">
@@ -624,10 +635,10 @@ small {
       onclick="zoomImageCustom('NOVIA VIP SERVICE 2.jpg')"
     >
    <img
-      src="Novia Entrance Poster.jpg"
+      src="starts at 7pm - 3pm EXTENDED UNTIL 6PM.png"
       alt="Image 1"
       class="hover-zoom"
-      onclick="zoomImageCustom('Novia Entrance Poster.jpg')"
+      onclick="zoomImageCustom('starts at 7pm - 3pm EXTENDED UNTIL 6PM.png')"
     >   
     <img
       src="0857.jpg"
@@ -759,10 +770,10 @@ small {
 <span class="close-btn" onclick="closeGallery()">&times;</span>
     <div id="galleryContent" class="modal-content">
         
-        <img src="Experience.jpg" onclick="zoomImage('Experience.jpg')">
-        <img src="Experience2.jpg" onclick="zoomImage('Experience2.jpg')">
-        <img src="Experience3.jpg" onclick="zoomImage('Experience3.jpg')">
-  <img src="Experience4.jpg" onclick="zoomImage('Experience4.jpg')">
+        <img src="girl1.jpg" onclick="zoomImage('girl1.jpg')">
+        <img src="girl2.jpg" onclick="zoomImage('girl2.jpg')">
+        <img src="girl3.jpg" onclick="zoomImage('girl3.jpg')">
+  <img src="girl4.jpg" onclick="zoomImage('girl4.jpg')">
         <img src="girl5.jpg" onclick="zoomImage('girl5.jpg')">
         <img src="girl6.jpg" onclick="zoomImage('girl6.jpg')">
         <img src="girl7.jpg" onclick="zoomImage('girl7.jpg')">
@@ -899,7 +910,6 @@ small {
   <img src="photo_2024-11-27_15-55-34.jpg" onclick="zoomImageVip('photo_2024-11-27_15-55-34.jpg')">
   <img src="photo_2025-04-08_02-49-14.jpg" onclick="zoomImageVip('photo_2025-04-08_02-49-14.jpg')">
 
-
     </div>
 </div>
 
@@ -967,12 +977,27 @@ function closeCoreValues() {
     modal.style.display = 'none';
 }
     // Random Background
-    const images = [
-        'photo_2024-11-27_15-55-34 (3).jpg',
-        'photo_2024-11-27_15-55-34 (2).jpg',
-        'photo_2024-11-27_15-55-34.jpg'
-    ];
-    document.body.style.backgroundImage = `url('${images[Math.floor(Math.random() * images.length)]}')`;
+    const bgImages = [
+    'photo_2024-11-27_15-55-34 (3).jpg',
+    'photo_2024-11-27_15-55-34 (2).jpg',
+    'photo_2024-11-27_15-55-34.jpg'
+  ];
+
+  let bgIndex = 0;
+
+  function rotateBackground() {
+    document.body.classList.add('fade');
+    setTimeout(() => {
+      bgIndex = (bgIndex + 1) % bgImages.length;
+      document.body.style.backgroundImage = `url('${bgImages[bgIndex]}')`;
+      document.body.classList.remove('fade');
+    }, 500);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.body.style.backgroundImage = `url('${bgImages[bgIndex]}')`;
+    setInterval(rotateBackground, 10000); // every 10 seconds
+  });
 
     // Language change
     function changeLanguage(lang) {
@@ -995,7 +1020,7 @@ function closeCoreValues() {
     setTimeout(() => {
         if (lang === 'korean') {
             document.body.style.fontFamily = "'Noto Sans KR', sans-serif";
-            title.innerHTML = "국제 고급 JTV 및 파티 클럽에 오신 것을 환영합니다";
+            title.innerHTML = "세련된 밤문화의 정점에 오신 것을 환영합니다. 인터내셔널 럭셔리 JTV & 파티 클럽";
             tagline.innerHTML = "상상력이 현실이 되고 소녀들은 주차장보다 뜨겁습니다";
             para1.innerHTML = "우아함, 흥분, 휴식을 즐길 수 있는 세계로 발을 들여보세요. 국제 고급 JTV 및 파티 클럽에서 친구들과 함께 프라이빗 VIP룸을 즐기고, 프리미엄 음료를 맛보며 잊지 못할 추억을 만드세요.";
             para2.innerHTML = "럭셔리한 경험에 몰입하세요. 밤은 항상 젊고 분위기는 항상 뜨겁습니다. 프라이빗 파티, 즉흥 파티, 또는 편안한 저녁을 위한 완벽한 장소입니다.";
@@ -1010,7 +1035,7 @@ function closeCoreValues() {
             btnBookNow.innerHTML = "[ 📅 지금 예약하기 ]";
         } else if (lang === 'japanese') {
             document.body.style.fontFamily = "'Noto Sans JP', sans-serif";
-            title.innerHTML = "インターナショナル高級JTV＆パーティークラブへようこそ";
+            title.innerHTML = "洗練されたナイトライフの極みへようこそ。インターナショナル・ラグジュアリー JTV & パーティークラブ";
             tagline.innerHTML = "想像力が現実に出会い、女の子たちは駐車場よりも熱い";
             para1.innerHTML = "優雅さ、興奮、リラクゼーションの世界へ足を踏み入れてください。国際高級JTV＆パーティークラブで、友人たちと共にプライベートVIPルームを楽しみ、プレミアムドリンクを味わい、忘れられない思い出を作りましょう。";
             para2.innerHTML = "贅沢な体験に浸りましょう。夜は常に若く、雰囲気は常に高揚しています。プライベートパーティー、即興のパーティー、またはくつろぎの夜に最適な場所です。";
@@ -1030,7 +1055,7 @@ function closeCoreValues() {
             para2.innerHTML = "沉浸在一个夜晚永远年轻、气氛永远高涨的奢华体验中。无论是私人聚会、即兴派对还是一个放松的夜晚，这里都是完美的选择。";
             para3.innerHTML = "配备最先进的灯光系统、顶级音响设备，以及随时准备为您服务的贴心员工，这里每一个瞬间都为令人印象深刻而打造。我们精心挑选的国际鸡尾酒、优质葡萄酒和独家烈酒，确保您的酒杯始终充满高品质的享受。<br><br>与朋友在高科技私人包厢中享受卡拉OK，品尝我们专属菜单中的美食，或在炫目的灯光下尽情跳舞——俱乐部的每一个角落都为奢华、连结和非凡体验而设计。<br><br>在这里，奢华与激情相遇，风格与舒适并存。每个夜晚，都是值得铭记的故事的开始。";
             address.innerHTML = `<a href="https://www.google.com/maps/place/Novia+VIP+Club+JTV/@14.5735276,120.9823624,17z/data=!3m1!4b1!4m6!3m5!1s0x3397cb003641f287:0x69119f224818b267!8m2!3d14.5735276!4d120.9823624!16s%2Fg%2F11wvm89t_z?entry=ttu" class="address-link" target="_blank">📍 地址：马尼拉马拉特，Pedro Gil街与Del Pilar街交汇处1588号<br>新海岸酒店六楼</a>`;
-            hours.innerHTML = "营业时间：晚上7点至凌晨3点";
+            hours.innerHTML = "欢迎来到高端夜生活的巅峰之选。国际奢华JTV派对俱乐部";
             btnSeeGirls.innerHTML = "[ 👯‍♀️ 来看看我们的小姐们 ]";
             btnVipRooms.innerHTML = "[ 🎉 查看VIP房间 ]";
             btnCoreValues.innerHTML = "[ 📜 我们的核心价值观 ]";
@@ -1038,7 +1063,7 @@ function closeCoreValues() {
             btnBookNow.innerHTML = "[ 📅 立即预订 ]";
         } else {
             document.body.style.fontFamily = "'Helvetica Neue', sans-serif";
-            title.innerHTML = "Welcome <br> to <br> International Luxury JTV and Party Club";
+            title.innerHTML = "Welcome to the Premier Destination for Nightlife Sophistication. International Luxury JTV & Party Club.";
             tagline.innerHTML = "Where Imagination Meets Reality and Where the Girls are Hotter than the Parking Lot";
             para1.innerHTML = "Step into a world of elegance, excitement, and relaxation. At our International Luxury JTV and Party Club, you and your friends can enjoy private,<br> world-class VIP rooms, sip premium drinks, and create unforgettable memories.<br> Whether you seek a night of vibrant energy or a relaxing evening, our club offers an exclusive atmosphere tailored just for you.";
             para2.innerHTML = "Immerse yourself in a luxurious experience where the night is always young and the vibes are always high.<br> Private celebrations, spontaneous parties, or just a night to unwind — it's the perfect place for an unforgettable night.";
@@ -1066,6 +1091,7 @@ function openGallery() {
 }
 
 function closeGallery() {
+    hideFixedElements();
     const modal = document.getElementById('galleryModal');
     const zoomed = document.getElementById('zoomedImage');
     const galleryContent = document.getElementById('galleryContent');
@@ -1263,7 +1289,7 @@ function prevEventSlide() {
 
 const imageList = [
       "NOVIA VIP SERVICE 2.jpg",
-      "Novia Entrance Poster.jpg", 
+      "starts at 7pm - 3pm EXTENDED UNTIL 6PM.png", 
       "Novia VIP System Menu.jpg",  
       "Vip Service-Korean.jpg",
       "0857.jpg",
